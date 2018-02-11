@@ -5,7 +5,7 @@ $(document).on("pageshow","#pageone",onPageShow);
 function onPageShow(){
     console.log("page shown");
     
-    Backendless.Data.of("TASKS").find().then(processResults).catch(error);
+    Backendless.Data.of("Tasks").find().then(processResults).catch(error);
     
     function processResults(tasks){
         //display the first task in an array of tasks/
