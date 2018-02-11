@@ -23,6 +23,7 @@ function processResults(tasks){
 function onAddTask(){
     console.log("add task button clicked");
     var taskText=$('addTaskText').val();
+    console.log(taskText);
     //Create newtask object
     var newTask={};
     newTask.Task=taskText;
