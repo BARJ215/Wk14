@@ -30,7 +30,7 @@ function onAddTask(){
     Backendless.Data.of("Tasks").save(newTask).then(saved).catch(error);   
 }
 
-function saved(){
+function saved(savedTask){
     console.log("new Contact instance has been saved" + savedTask);
 }
     
