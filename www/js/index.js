@@ -1,6 +1,7 @@
 Backendless.initApp("1F116359-9934-2652-FF41-EC23042C0400","B59AA48F-500F-B1E8-FF7B-EACAB3399500");
 
 $(document).on("pageshow","#pageone",onPageShow);
+$(document).on("click","#addTaskButton",onAddTask);
 
 function onPageShow(){
     console.log("page shown");
@@ -18,10 +19,23 @@ function onPageShow(){
         //refresh the listview
         $('#taskList').listview('refresh');
     }
+  
+    function onAddTask(){
+        console.log("add task button clicked");
+        var taskText=$('addTaskText').val();
+        //Create newtask object
+        var newTask={};
+        newTask.Task=taskText;
+        //Save new object
+        Backendless.Data.of("Tasks").save(newTask).then(saved).catch(error);   
+    }
     
-    function error(err){
-        alert(err);
+    function saved(){
+        console.log("new Contact instance has been saved" + savedTask);
+    }
         
+    function error(err){
+        alert(err);   
     }
     
 }
