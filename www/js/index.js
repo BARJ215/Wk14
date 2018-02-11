@@ -5,37 +5,35 @@ $(document).on("click","#addTaskButton",onAddTask);
 
 function onPageShow(){
     console.log("page shown");
-    
     Backendless.Data.of("Tasks").find().then(processResults).catch(error);
-    
-    function processResults(tasks){
-        //display the first task in an array of tasks/
-        //alert(tasks[0].Task);
-        $('#taskList').empty();
-        //add each new tasks
-        for(var i=0; i<tasks.length;i++){
-            $('#taskList').append("<li>"+tasks[i].Task+"</li>");        
-        }
-        //refresh the listview
-        $('#taskList').listview('refresh');
+}
+
+function processResults(tasks){
+    //display the first task in an array of tasks/
+    //alert(tasks[0].Task);
+    $('#taskList').empty();
+    //add each new tasks
+    for(var i=0; i<tasks.length;i++){
+        $('#taskList').append("<li>"+tasks[i].Task+"</li>");        
     }
+    //refresh the listview
+    $('#taskList').listview('refresh');
+}
   
-    function onAddTask(){
-        console.log("add task button clicked");
-        var taskText=$('addTaskText').val();
-        //Create newtask object
-        var newTask={};
-        newTask.Task=taskText;
-        //Save new object
-        Backendless.Data.of("Tasks").save(newTask).then(saved).catch(error);   
-    }
+function onAddTask(){
+    console.log("add task button clicked");
+    var taskText=$('addTaskText').val();
+    //Create newtask object
+    var newTask={};
+    newTask.Task=taskText;
+    //Save new object
+    Backendless.Data.of("Tasks").save(newTask).then(saved).catch(error);   
+}
+
+function saved(){
+    console.log("new Contact instance has been saved" + savedTask);
+}
     
-    function saved(){
-        console.log("new Contact instance has been saved" + savedTask);
-    }
-        
-    function error(err){
-        alert(err);   
-    }
-    
+function error(err){
+    alert(err);   
 }
