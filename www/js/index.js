@@ -9,8 +9,14 @@ function onPageShow(){
     
     function processResults(tasks){
         //display the first task in an array of tasks/
-        alert(tasks[0].Task);
-            
+        //alert(tasks[0].Task);
+        $('#taskList').empty();
+        //add each new tasks
+        for(var i=0; i<tasks.length;i++){
+            $('#taskList').append("<li>"+tasks[i].Task+"</li>");        
+        }
+        //refresh the listview
+        $('#taskList').listview('refresh');
     }
     
     function error(err){
