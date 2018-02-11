@@ -22,7 +22,7 @@ function processResults(tasks){
   
 function onAddTask(){
     console.log("add task button clicked");
-    var taskText=$('addTaskText').val();
+    var taskText=document.getElementById("addTaskText").value;
     console.log(taskText);
     //Create newtask object
     var newTask={};
