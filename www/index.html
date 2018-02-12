@@ -15,7 +15,17 @@
                 <h1>Backendles Test</h1>
             </div>
             <div data-role="main">
+                <h2>Task Table</h2>
+                <!--
+                <ul data-role="listview" id="taskList">
+                </ul>
+                -->
+                <!--Tasks Table-->
+                <table id="taskTable" style="width:100%;text-align: left;">
+                </table>
                 <!--Input-->
+                <br>
+                <h2>Add Task</h2>
                 <input type="text" name="textinput" id="addTaskText" value="" placeholder="New Task" />
                 <input type="date" name="dateinput" id="addTaskDate" value=""/>
                 <br>
@@ -23,16 +33,6 @@
                 <br>
                 <!--Button-->
                 <input type="button" id="addTaskButton" value="Add Task" />
-                <h2>Tasks</h2>
-                <!--
-                <ul data-role="listview" id="taskList">
-                </ul>
-                -->
-                <br>
-                <!--Tasks Table-->
-                <table id="taskTable" style="width:100%;text-align: left;">
-                </table>
-                
                 <h2>Delete</h2>
                 <!--Select Menu-->
                 <select id='removeTaskSelect'>
